@@ -11,22 +11,22 @@ interface ContentTypeCardProps {
 const ContentTypeCard = ({ icon: Icon, label, description, selected, onClick }: ContentTypeCardProps) => (
   <button
     onClick={onClick}
-    className={`group flex flex-col items-start gap-2 rounded-xl border-2 p-4 text-left transition-all ${
+    className={`group flex flex-col items-start gap-3 rounded-[1.5rem] border p-5 text-left transition-all ${
       selected
-        ? "border-primary bg-primary/5 shadow-card"
-        : "border-border bg-card hover:border-primary/30 hover:shadow-card"
+        ? "border-foreground bg-[#fffaf2] shadow-soft"
+        : "border-border/70 bg-card/95 hover:-translate-y-0.5 hover:border-[#b99268] hover:shadow-soft"
     }`}
   >
     <div
       className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
-        selected ? "gradient-primary" : "bg-muted group-hover:bg-primary/10"
+        selected ? "bg-foreground" : "bg-secondary group-hover:bg-[#f3e8d7]"
       }`}
     >
-      <Icon className={`h-5 w-5 ${selected ? "text-primary-foreground" : "text-muted-foreground group-hover:text-primary"}`} />
+      <Icon className={`h-5 w-5 ${selected ? "text-background" : "text-muted-foreground group-hover:text-primary"}`} />
     </div>
     <div>
       <p className="text-sm font-semibold text-foreground">{label}</p>
-      <p className="text-xs text-muted-foreground">{description}</p>
+      <p className="mt-1 text-xs leading-6 text-muted-foreground">{description}</p>
     </div>
   </button>
 );

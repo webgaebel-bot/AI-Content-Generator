@@ -1,6 +1,6 @@
-import { Copy, FileText, FileDown, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Check, Copy, FileDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface GeneratedContentProps {
   content: string;
@@ -19,16 +19,16 @@ const GeneratedContent = ({ content, language }: GeneratedContentProps) => {
   const handleExportTxt = () => {
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "generated-content.txt";
-    a.click();
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "generated-content.txt";
+    anchor.click();
     URL.revokeObjectURL(url);
   };
 
   return (
-    <div className="animate-fade-in rounded-xl border border-border bg-card shadow-card">
-      <div className="flex items-center justify-between border-b border-border px-5 py-3">
+    <div className="animate-fade-in rounded-[2rem] border border-border/70 bg-card/95 shadow-soft">
+      <div className="flex items-center justify-between border-b border-border/70 px-5 py-4">
         <h3 className="text-sm font-semibold text-foreground">Generated Content</h3>
         <div className="flex gap-1.5">
           <Button variant="ghost" size="sm" onClick={handleCopy} className="h-8 gap-1.5 text-xs">
@@ -41,10 +41,8 @@ const GeneratedContent = ({ content, language }: GeneratedContentProps) => {
           </Button>
         </div>
       </div>
-      <div className={`p-5 ${language === "urdu" ? "urdu-text" : ""}`}>
-        <div className="prose prose-sm max-w-none whitespace-pre-wrap text-foreground">
-          {content}
-        </div>
+      <div className={`p-6 ${language === "urdu" ? "urdu-text" : ""}`}>
+        <div className="prose prose-sm max-w-none whitespace-pre-wrap leading-7 text-foreground">{content}</div>
       </div>
     </div>
   );
