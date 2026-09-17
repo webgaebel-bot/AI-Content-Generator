@@ -1,0 +1,6 @@
+{
+  "name": "Content Draft Studio",
+  "description": "Human-feeling AI content workspace for blogs, ads, product copy, and bilingual drafting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
